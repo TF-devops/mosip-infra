@@ -24,7 +24,7 @@ node {
      [name: branch]
     ],
     userRemoteConfigs: [
-     [url: https://github.com/ckm007/mosip-platform-27-aug.git, credentialsId:gitCredentials ]
+     [url: gitUrl, credentialsId:gitCredentials ]
     ],
     extensions: [
 
