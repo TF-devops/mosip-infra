@@ -1,14 +1,14 @@
 node {
  try{
- def server = Artifactory.server 'ART'
+ def server = Artifactory.server 'REG'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = params.BRANCH_NAME
+ def branch = env.BRANCH_NAME
  def dockerImagesTagVersion = branch  //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'registration'
- def registryUrl = params.REG_CLIENT_REGISTRYURL
+ def registryUrl = env.REG_CLIENT_REGISTRYURL
  def registryName = params.REG_CLIENT_REGISTRYNAME
- def gitUrl = params.GIT_URL
+ def gitUrl = env.GIT_URL
  def gitCredentials = params.GIT_CREDENTIALS
  def buildInfo1
  def pom
@@ -71,17 +71,17 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -DskipTests', buildInfo: buildInfo
   buildInfo1 = server.upload spec: uploadSpec
  }
-
+/*
  stage('---------- SonarQube Analysis --------------') {
   def mvnHome = tool name: 'M2_HOME', type: 'maven'
   withSonarQubeEnv('sonar') {
    sh "${mvnHome}/bin/mvn -f '$branch/$projectToBuild/' sonar:sonar"
   }
  }
-
+*/
  stage('----------- Publish build info -------------') {
  // buildInfo.append buildInfo1
   server.publishBuildInfo buildInfo
