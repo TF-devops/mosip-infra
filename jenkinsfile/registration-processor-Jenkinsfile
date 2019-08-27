@@ -6,11 +6,11 @@ node {
  def branch = env.BRANCH_NAME
  projectToBuild = 'registration-processor'
  def dockerImagesTagVersion = 'NaV'  //This will ensure that docker images tag should have 1-1 relation ship with project version
- def registryUrl = params.REGISTRY_URL
- def registryName = params.REGISTRY_NAME
- def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = params.GIT_URL
- def gitCredentials = params.GIT_CREDENTIALS
+ def registryUrl = env.REGISTRY_URL
+ def registryName = env.REGISTRY_NAME
+ def registryCredentials = env.REGISTRY_CREDENTIALS
+ def gitUrl = env.GIT_URL
+ def gitCredentials = env.GIT_CREDENTIALS
  k8Context = params.K8_CLUSTER_CONTEXT
  updatedServicesForDmz = []
  updatedDockerImagesForDmz = []
