@@ -8,7 +8,7 @@ node {
  projectToBuild = 'pre-registration'
  def registryUrl = env.REGISTRY_URL
  def registryName = env.REGISTRY_NAME
- def registryCredentials = params.REGISTRY_CREDENTIALS
+ def registryCredentials = env.REGISTRY_CREDENTIALS
  def gitUrl = env.GIT_URL
  def gitCredentials = env.GIT_CREDENTIALS
  updatedServices = []
