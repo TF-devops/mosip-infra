@@ -2,7 +2,7 @@ node {
  try{
 
  def buildInfo
- def branch = env.BRANCH_NAME
+ def branch = 'aug-27-19'
  def dockerImagesTagVersion = 'NaV'  //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'pre-registration-ui'
  def registryUrl = env.REGISTRY_URL
