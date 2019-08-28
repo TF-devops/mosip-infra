@@ -8,7 +8,7 @@ node {
  def registryUrl = params.REGISTRY_URL
  def registryName = params.REGISTRY_NAME
  def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = params.GIT_URL
+ def gitUrl = params.GIT_URL1
  def gitCredentials = params.GIT_CREDENTIALS
  updatedServices = []
  updatedDockerImages = []
