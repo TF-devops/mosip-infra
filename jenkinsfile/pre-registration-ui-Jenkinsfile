@@ -90,7 +90,7 @@ stage ('---------- build ---------------') {
    sh "pwd"
    
    sh '''
-   echo $(sed -nE 's/^\\s*"version": "(.*?)",$/\\1/p' /mnt/resource/jenkins/workspace/pre-registration-ui-module/master/pre-registration-ui/package.json) > version
+   echo $(sed -nE 's/^\\s*"version": "(.*?)",$/\\1/p' /var/lib/jenkins/workspace/pre-reg-ui/aug-27-19/pre-registration-ui/package.json) > version
    '''
    dockerImagesTagVersion = readFile('version').trim() 
  
