@@ -71,8 +71,8 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -DskipTests', buildInfo: buildInfo
-  buildInfo1 = server.upload spec: uploadSpec
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=hostname -DskipTests', buildInfo: buildInfo
+  buildInfo1 = server.upload spec: uploadSpec 
  }
 /*
  stage('---------- SonarQube Analysis --------------') {
