@@ -71,7 +71,7 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install  -Denvironment=hostname', buildInfo: buildInfo
   buildInfo1 = server.upload spec: uploadSpec
  }
 
