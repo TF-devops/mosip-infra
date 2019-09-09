@@ -71,7 +71,7 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=52.163.57.127:8081/artifactory -DskipTests', buildInfo: buildInfo
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=nginxtf.southeastasia.cloudapp.azure.com/artifactory/webapp/ -DskipTests', buildInfo: buildInfo
   buildInfo1 = server.upload spec: uploadSpec 
  }
 /*
