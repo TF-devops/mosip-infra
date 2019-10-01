@@ -3,14 +3,14 @@ node {
  def server = Artifactory.server 'REG'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = env.BRANCH_NAME
+ def branch = Bypass_OTP
  def dockerImagesTagVersion = 'NaV' //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'kernel'
   def registryUrl = env.REGISTRY_URL
  def registryName = env.REGISTRY_NAME
  def registryCredentials = params.REGISTRY_CREDENTIALS
  def gitUrl = env.GIT_URL
- def gitCredentials = params.GIT_CREDENTIALS
+ def gitCredentials = params.GIT_CREDENTIALS2
  targetDeploymentServer = 'mosip-dev-cluster'
  updatedServices = []
  updatedDockerImages = []
@@ -29,7 +29,7 @@ node {
      [name: branch]
     ],
     userRemoteConfigs: [
-     [url: gitUrl, credentialsId: gitCredentials]
+     [url: https://github.com/TF-devops/mosip-platform.git, credentialsId: gitCredentials]
     ],
     extensions: [
      /*
