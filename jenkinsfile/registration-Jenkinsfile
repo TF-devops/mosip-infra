@@ -3,12 +3,12 @@ node {
  def server = Artifactory.server 'REG'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = env.BRANCH_NAME
+ def branch = 'Bypass_OTP'
  def dockerImagesTagVersion = branch  //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'registration'
  def registryUrl = env.REG_CLIENT_REGISTRYURL
  def registryName = params.REG_CLIENT_REGISTRYNAME
- def gitUrl = env.GIT_URL
+ def gitUrl = env.GIT_URL2
  def gitCredentials = params.GIT_CREDENTIALS
  def buildInfo1
  def pom
