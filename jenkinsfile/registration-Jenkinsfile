@@ -1,6 +1,6 @@
 node {
  try{
- def server = Artifactory.server 'REG'
+ def server = Artifactory.server 'ART'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
  def branch = 'Bypass_OTP'
@@ -9,7 +9,7 @@ node {
  def registryUrl = env.REG_CLIENT_REGISTRYURL
  def registryName = params.REG_CLIENT_REGISTRYNAME
  def gitUrl = env.GIT_URL2
- def gitCredentials = params.GIT_CREDENTIALS
+ def gitCredentials = params.GIT_CREDENTIALS2
  def buildInfo1
  def pom
  def version 
