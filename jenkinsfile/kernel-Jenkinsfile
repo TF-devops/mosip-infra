@@ -1,6 +1,6 @@
 node {
  try{
- def server = Artifactory.server 'REG'
+ def server = Artifactory.server 'ART'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
  def branch = 'Bypass_OTP'
