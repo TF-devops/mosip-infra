@@ -8,7 +8,7 @@ node {
  projectToBuild = 'registration'
  def registryUrl = env.REG_CLIENT_REGISTRYURL
  def registryName = params.REG_CLIENT_REGISTRYNAME
- def gitUrl = env.GIT_URL
+ def gitUrl = env.GIT_URL2
  def gitCredentials = params.GIT_CREDENTIALS
  def buildInfo1
  def pom
