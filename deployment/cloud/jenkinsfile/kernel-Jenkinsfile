@@ -3,13 +3,13 @@ node {
  def server = Artifactory.server 'ART'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = params.BRANCH_NAME
+ def branch = env.BRANCH_NAME
  def dockerImagesTagVersion = 'NaV' //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'kernel'
-  def registryUrl = params.REGISTRY_URL
- def registryName = params.REGISTRY_NAME
+  def registryUrl = env.REGISTRY_URL
+ def registryName = env.REGISTRY_NAME
  def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = params.GIT_URL2
+ def gitUrl = env.GIT_URL2
  def gitCredentials = params.GIT_CREDENTIALS2
  targetDeploymentServer = 'mosip-dev-cluster'
  updatedServices = []
