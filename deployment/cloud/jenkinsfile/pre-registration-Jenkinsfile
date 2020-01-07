@@ -9,8 +9,8 @@ node {
  def registryUrl = env.REGISTRY_URL
  def registryName = env.REGISTRY_NAME
  def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = params.GIT_URL2
- def gitCredentials = params.GIT_CREDENTIALS2
+ def gitUrl = env.GIT_URL2
+ def gitCredentials = env.GIT_CREDENTIALS2
  updatedServices = []
  updatedDockerImages = []
  containersToRun = ''
