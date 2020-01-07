@@ -3,14 +3,14 @@ node {
  def server = Artifactory.server 'ART'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = params.BRANCH_NAME
+ def branch = env.BRANCH_NAME
  projectToBuild = 'registration-processor'
  def dockerImagesTagVersion = 'NaV'  //This will ensure that docker images tag should have 1-1 relation ship with project version
- def registryUrl = params.REGISTRY_URL
- def registryName = params.REGISTRY_NAME
- def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = params.GIT_URL
- def gitCredentials = params.GIT_CREDENTIALS
+ def registryUrl = env.REGISTRY_URL
+ def registryName = env.REGISTRY_NAME
+ def registryCredentials = env.REGISTRY_CREDENTIALS
+ def gitUrl = env.GIT_URL2
+ def gitCredentials = env.GIT_CREDENTIALS2
  k8Context = params.K8_CLUSTER_CONTEXT
  updatedServicesForDmz = []
  updatedDockerImagesForDmz = []
@@ -55,16 +55,16 @@ node {
  
 stage ('---------- mvn-clean-install ---------------') {
 	//rtMaven.deployer.deployArtifacts = false
-        rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install', buildInfo: buildInfo
+        rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -DskipTests', buildInfo: buildInfo
 }
-
+/*
 stage('---------- SonarQube Analysis --------------') {
   def mvnHome = tool name: 'M2_HOME', type: 'maven'
   withSonarQubeEnv('sonar') {
    sh "${mvnHome}/bin/mvn -f '$branch/$projectToBuild/' sonar:sonar"
   }
  }
-
+*/
 stage('----------- Publish build info -------------') {
   server.publishBuildInfo buildInfo
  }
