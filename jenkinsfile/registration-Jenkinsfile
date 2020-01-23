@@ -71,7 +71,7 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=mosip-tf.technoforte.co.in -DskipTests', buildInfo: buildInfo
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=nginxtf.southeastasia.cloudapp.azure.com -DskipTests', buildInfo: buildInfo
   buildInfo1 = server.upload spec: uploadSpec 
  }
 /*
