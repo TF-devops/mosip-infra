@@ -9,8 +9,8 @@ node {
   def registryUrl = env.REGISTRY_URL
  def registryName = env.REGISTRY_NAME
  def registryCredentials = params.REGISTRY_CREDENTIALS
- def gitUrl = env.GIT_URL2
- def gitCredentials = params.GIT_CREDENTIALS2
+ def gitUrl = 'https://github.com/AswinMN/mosip-platform.git'
+ def gitCredentials = params.GIT_CREDENTIALS
  targetDeploymentServer = 'mosip-dev-cluster'
  updatedServices = []
  updatedDockerImages = []
