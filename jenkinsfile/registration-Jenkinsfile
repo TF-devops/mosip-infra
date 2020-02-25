@@ -3,7 +3,7 @@ node {
  def server = Artifactory.server 'REG'
  def rtMaven = Artifactory.newMavenBuild()
  def buildInfo
- def branch = '0.9.1_TF'
+ def branch = '1.0.0_MDS-v0.9.2'
  def dockerImagesTagVersion = branch  //This will ensure that docker images tag should have 1-1 relation ship with project version
  projectToBuild = 'registration'
  def registryUrl = env.REG_CLIENT_REGISTRYURL
@@ -71,7 +71,7 @@ node {
  }
 
  stage('---------- mvn-clean-install ---------------') {
-  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=mosip-tf.technoforte.co.in -DskipTests', buildInfo: buildInfo
+  rtMaven.run pom: branch + '/' + projectToBuild + '/pom.xml', goals: 'clean install -Denvironment=nginxsprod.eastus.cloudapp.azure.com -DskipTests', buildInfo: buildInfo
   buildInfo1 = server.upload spec: uploadSpec 
  }
 /*
